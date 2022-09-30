@@ -1,2 +1,2 @@
-# 411
+# CS411
 CS411 Group Project
