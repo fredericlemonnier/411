@@ -8,7 +8,7 @@ and the "https://www.openbrewerydb.org/documentation" api to find the breweries.
 
 2. Food recipe and nutrition analysis app proposal:
 
-  Our app is a meal management app, which offers two functionalities: 1)providing food recipes according to the user's needs has and 2)tracking the nutrition and calories consumption of the user. 
+  Our app is a meal management app, which offers two functionalities: 1)providing food recipes according to the user's needs and 2)tracking the nutrition and calories consumption of the user. 
   
   Our app first starts with searching for the recipes for the users according to their needs. 
   
