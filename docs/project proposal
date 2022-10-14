@@ -1,0 +1,11 @@
+Soccer Match Brewery Finder
+The idea is that the user inputs a soccer game they are attending and in return gets breweries close to the stadium. We will use the https://www.api-football.com/coverage or https://docs.sportmonks.com/football2/getting-started/welcome api for the soccer games and the https://www.openbrewerydb.org/documentation api to find the breweries.
+
+Recipe Finder and Calorie Calculator
+The idea is that the user inputs the current ingredients they have and in return gets the possible recipes and their calorie information. We will use three potential APIs: spoonacular API:
+https://rapidapi.com/spoonacular/api/recipe-food-nutrition/ 
+Edamam API:
+https://rapidapi.com/edamam/api/recipe-search-and-diet/ 
+Recipe ingredients extractor API:
+https://rapidapi.com/c85270r/api/recipe-ingredients-extractor/ 
+
