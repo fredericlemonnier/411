@@ -4,10 +4,10 @@ We will use the "https://www.api-football.com/coverage or https://docs.sportmonk
 and the "https://www.openbrewerydb.org/documentation" api to find the breweries.
 
 2. Food recipe and nutrition analysis app proposal:
-  Our app is a meal management app, which offers two functionalities: 1)providing food recipes according to the user's needs has and 2)tracking the nutrition and calories consumption of the user. 
+  Our app is a meal management app, which offers two functionalities: 1)providing food recipes according to the user's needs and 2)tracking the nutrition and calories consumption of the user. 
   Our app first starts with searching for the recipes for the users according to their needs. 
-We’ll use the “Spoonacular Nutrition, Recipe, and food API” to display the corresponding food recipes for our app users according to the search filters they use.
-In this recipe search API, there are many filters to choose from, such as ingredients and equipment you currently have, the desired cuisine type, your standard for the minCalories and maxCalories and so on.
+  We’ll use the “Spoonacular Nutrition, Recipe, and food API” to display the corresponding food recipes for our app users according to the search filters they use.
+  In this recipe search API, there are many filters to choose from, such as ingredients and equipment you currently have, the desired cuisine type, your standard for the minCalories and maxCalories and so on.
   Our app will be a tailored food and recipe management app for our users. 
   In the user’s recipe search, we’ll not only provide the recipe itself but also detailed instructions of how to cook that meal step by step. 
   A second part of our app is nutrition analysis.
