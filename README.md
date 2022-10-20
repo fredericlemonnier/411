@@ -3,7 +3,7 @@ CS411 Group Project proposal
 1. Soccer Match Brewery Finder
 
 The idea is that the user inputs a soccer game they are attending and in return gets breweries close to the stadium. 
-We will use the "https://www.api-football.com/coverage or https://docs.sportmonks.com/football2/getting-started/welcome api" for the soccer games 
+We will use the https://docs.sportmonks.com/football2/getting-started/welcome api" for the soccer games 
 and the "https://www.openbrewerydb.org/documentation" api to find the breweries.
 
 2. Food recipe and nutrition analysis app proposal:
