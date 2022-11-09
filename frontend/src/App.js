@@ -1,22 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import BreweryList from './components/BreweryList/BreweryList';
+import SearchBar from './components/SearchBar/SearchBar';
+
+const brewery = {
+  name: 'MarginOtto Pizzeria',
+  address: '1010 Paddington Way',
+  city: 'Bordertown',
+  state: 'NY',
+  zipCode: '10101',
+}
+
+const breweries = [
+  brewery,
+  brewery,
+  brewery,
+  brewery,
+  brewery
+];
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Find Breweries!</h1>
+        <SearchBar />
+        <BreweryList breweries={breweries} />
       </header>
     </div>
   );
