@@ -24,7 +24,6 @@ function App() {
       <header className="App-header">
         <h1>Find Breweries!</h1>
         <SearchBar />
-        <BreweryList breweries={breweries} />
       </header>
     </div>
   );

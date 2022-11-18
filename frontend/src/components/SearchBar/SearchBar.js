@@ -42,26 +42,12 @@ function SearchBar() {
     }
 
     const getBreweries = (latitude,longitude) => {
-        const req5 = axios.get(`https://cors-anywhere.herokuapp.com/https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}`).then((response => {
+        const req5 = axios.get(`https://cors-anywhere.herokuapp.com/https://api.openbrewerydb.org/breweries?by_dist=${latitude},${longitude}&per_page=10`).then((response => {
             const breweries = response.data
             console.log(breweries)
         }))
     }
-
-    // const getFixture = (teamID) => { 
-    //     const gameDay = new Date(dateRef.current.value)
-    //     const nextDay = new Date(gameDay)
-    //     nextDay.setDate(gameDay.getDate() + 1);
-    //     const start_date = gameDay.toISOString().substring(0,10)
-    //     const end_date = nextDay.toISOString().substring(0,10)
-    //     console.log(typeof gameDay)
-    //     const req2 = axios.get(`https://cors-anywhere.herokuapp.com/https://api.sportmonks.com/v3/football/fixtures/between/${start_date}/${start_date}/${teamID}?api_token=${apiKey}`).then((response => {
-    //         const venueID = response.data
-    //         console.log(venueID)
-    //     }))
-
-    // } 
-
+    
     return (
         <div> 
             {/* Add instructions for complete team name */}       
