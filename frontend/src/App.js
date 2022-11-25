@@ -1,22 +1,9 @@
 import './App.css';
 import BreweryList from './components/BreweryList/BreweryList';
 import SearchBar from './components/SearchBar/SearchBar';
+import { Route, Routes} from 'react-router-dom';
 
-const brewery = {
-  name: 'MarginOtto Pizzeria',
-  address: '1010 Paddington Way',
-  city: 'Bordertown',
-  state: 'NY',
-  zipCode: '10101',
-}
 
-const breweries = [
-  brewery,
-  brewery,
-  brewery,
-  brewery,
-  brewery
-];
 
 function App() {
   return (
