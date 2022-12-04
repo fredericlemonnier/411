@@ -64,4 +64,8 @@ def getBreweries(latitude, longitude):
     breweries = r
     return HttpResponse(breweries)
 
+def createUser(username, pwd):
+    username: username
+    password: str = Field(...)
+
 
