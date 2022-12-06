@@ -7,9 +7,10 @@ import './Navbar.css'
 import GoogleLogin from 'react-google-login';
 import { gapi } from 'gapi-script';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function Navbar1() {
-    // const history = useHistory()
+    const history = useNavigate();
 
     // const handleLogoutClick = () => {
     //     logout()
@@ -52,7 +53,7 @@ function Navbar1() {
         setImageUrl(res.profileObj.imageUrl);
         setEmail(res.profileObj.email);
         console.log({name});
-        // {email!=="" && axios.post('http://127.0.0.1:8000/auth', 
+        // {axios.post('http://127.0.0.1:8000/auth', 
         // {email: res.profileObj.email, name: res.profileObj.name, googleId: res.profileObj.token}
         // )}
         // add condition on only if the email is not "", then axios.post() to backend
@@ -60,6 +61,14 @@ function Navbar1() {
     const onFailure = (res) => {
         console.log(res);
     }
+    const routeChange1 = () =>{ 
+        let path = '/login'; 
+        history(path);
+      }
+    const routeChange2 = () =>{ 
+        let path = '/register'; 
+        history(path);
+      }
 
     return (
         <Navbar collapseOnSelect expand="sm" bg="light" variant="light" className="mb-2">
@@ -72,10 +81,12 @@ function Navbar1() {
           buttonText="LOGIN WITH GOOGLE"
           onSuccess={onSuccess}
           onFailure={onFailure}
-        //   isSignedIn={true}
+          isSignedIn={true}
         />
-                    <Button className="mx-4" to="/login">Login</Button>
-                    <Button className="mx-4" to="/signup">Signup</Button>
+                   
+                    <Button className="mx-4" onClick={routeChange1}>Login</Button>
+                    <Button className="mx-4" onClick={routeChange2}>Signup</Button>
+                    
                 </ButtonGroup>
 
                 </Navbar>

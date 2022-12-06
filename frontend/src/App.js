@@ -7,24 +7,32 @@ import {
 } from "react-router-dom";
 import BreweryList from './components/BreweryList/BreweryList.js';
 import Navbar1 from './components/Navbar1/Navbar1.js';
+import LoginPage from './components/Views/LoginPage';
+import RegisterPage from './components/Views/RegisterPage';
 
 
 function App() {
   return (
     <div className="App">
+      
+      
+      
+      <BrowserRouter>
       <Navbar1 />
       <header className="App-header">
       
-      <BrowserRouter>
         <Routes>
 
           <Route exact path="/" element={<SearchBar/>} />
             
           <Route exact path="/details" element={<BreweryList/>} />
+          <Route exact path="/login" element={<LoginPage/>} />
+          <Route exact path="/register" element={<RegisterPage/>} />
             
         </Routes>
+        </header>
       </BrowserRouter>
-      </header>
+      
     </div>
   );
 }
