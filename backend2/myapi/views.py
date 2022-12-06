@@ -62,9 +62,31 @@ def getBreweries(request):
     longitude = r_coord['data']['longitude']
 
     # call function to get the list of breweries
-    breweries_url = f'https://api.openbrewerydb.org/breweries?by_dist={latitude},{longitude}&per_page=5'
-    r_brews = requests.get(url=breweries_url)
-    table['breweries'] = r_brews.json()
+    # breweries_url = f'https://api.openbrewerydb.org/breweries?by_dist={latitude},{longitude}&per_page=5'
+    # r_brews = requests.get(url=breweries_url)
+    # table['breweries'] = r_brews.json()
+    url = f'https://api.yelp.com/v3/businesses/search?latitude={latitude}&longitude={longitude}&term=brewery&sort_by=distance&limit=5'
+
+    headers = {
+    "accept": "application/json",
+    "Authorization": "Bearer RUokdExOM83iErtvL1Rsm736PNgFz0sNojJ-WLxA0Rtn_yQ1lZ5KN0Yo08DzZljkTrXa8wYXflJ_uVdsQ8zDSAJnvoXk6AS56WVUDFezwuyTEouw8VI7pY3UTiuIY3Yx"
+    }
+
+    new_response = requests.get(url, headers=headers)
+    new_response = new_response.json()["businesses"]
+    breweries = []
+  
+    for i in range(5):
+        pub_details = {
+            "name":new_response[i]['name'],
+            "address": new_response[i]['location']['address1'],
+            "city":new_response[i]['location']['city'],
+            "rating": new_response[i]['rating'],
+            "url":new_response[i]['url'],
+            "phone":new_response[i]['phone'],
+        }   
+        breweries.append(pub_details)
+    table['breweries'] = breweries
 
     ## get the team logos ##
     # get team1 logo
@@ -73,9 +95,8 @@ def getBreweries(request):
     # get team2 name
     game = r_fixture['data'][0]['name']
     teams = game.split(" vs ")
-    team1_index = teams.index(team1)
     team2_index = 0
-    if team1_index == 0:
+    if team1 in teams[0]:
         team2_index = 1
     team2 = teams[team2_index]
 

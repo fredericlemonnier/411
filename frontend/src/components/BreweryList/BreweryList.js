@@ -12,15 +12,17 @@ const BreweryList = () => {
 
   return (
     <div className='background'>
-      <h1>Top 5 closest breweries in the match's city</h1>
+      <h1>Top 5 closest breweries near the match's stadium!</h1>
        {data.map(
                 (brewery => <div className="Brewery List">
                   
                     <p className='brewery'> 
             <div className='name'>Brewery name: {brewery.name}</div>
-            <div>street address: {brewery.street}</div>
+            <div>street address: {brewery.address}</div>
+            <div>city: {brewery.city}</div>
             <div>phone number: {brewery.phone}</div>
-            <a href={brewery.website_url}>Check brewery detail through clicking this link!</a>
+            <div>ratings: {brewery.rating}</div>
+            <a href={brewery.url}>Check brewery detail through clicking this link!</a>
             
             </p>
                     
