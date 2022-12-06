@@ -1,0 +1,35 @@
+.Game{
+    position:absolute;
+    top: 50px;
+    left: 50px;
+}
+/* .img_col {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+} */
+.img_col{
+    display:inline-block
+}
+
+  
+  /* Clear floats after image containers */
+.img_row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+table, th, td {
+    border: 1px solid;
+  }
+
+.stadium{
+    font-style:italic;
+}
+/* .name{
+    font-weight: bold;
+}
+.brewery{
+    font-size: large;
+} */

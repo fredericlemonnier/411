@@ -1,0 +1,32 @@
+
+/* .mx-4{
+   justify-content: right;
+   text-align: right;
+} */
+
+.mb-2{
+    background-color: blueviolet;
+    color:blanchedalmond;
+    font-size: x-large;
+}
+.mx-3{
+    display: inline-block;
+    padding-inline: 300px;
+    font-size: x-large;
+    right:0px;
+
+}
+.mx-4{
+    font-size: x-large;
+    text-align: right;
+    margin-right: 0px;
+}
+.mx-5{
+    text-align: right;
+    justify-content: right;
+    margin-right: 0px;
+    font-size: medium;
+}
+#ButtonGroup{
+    right:0px;
+}
