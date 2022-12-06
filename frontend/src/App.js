@@ -14,9 +14,6 @@ function App() {
     <div className="App">
       <Navbar1 />
       <header className="App-header">
-      {/* <header className="App-header">
-        <SearchBar />
-      </header> */}
       
       <BrowserRouter>
         <Routes>

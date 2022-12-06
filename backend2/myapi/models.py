@@ -8,8 +8,9 @@ from mongoengine import Document, fields
 # Create your models here.
 class User(Document):
     id = fields.StringField()
-    name  = fields.StringField()
+    username  = fields.StringField()
     email = fields.StringField()
+    password =  fields.StringField()
 
     # not sure what to do w the stuff directly below
     # name = models.CharField(max_length=60)
