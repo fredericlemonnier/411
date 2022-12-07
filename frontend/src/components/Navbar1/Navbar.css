@@ -11,7 +11,7 @@
 }
 .mx-3{
     display: inline-block;
-    padding-inline: 100px;
+    /* padding-inline: 100px; */
     font-size: x-large;
     right:0px;
 
@@ -29,6 +29,12 @@
 }
 #ButtonGroup{
     right:0px;
+}
+Navbar.mx-3{
+    color: blueviolet;
+}
+.mb-2{
+    height: 35px;
 }
 /* .image{
     display: inline-block;

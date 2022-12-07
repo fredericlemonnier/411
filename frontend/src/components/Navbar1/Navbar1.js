@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, NavDropdown, Form, Button, ButtonGroup } from 'react-bootstrap'
 // import { logout } from "../actions/currentUser.js"
 // import { connect } from 'react-redux'

@@ -1,6 +1,53 @@
 .name{
     font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    font-size: x-large;
+    
 }
-.brewery{
-    font-size: large;
+.address{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    font-size: x-large;
+    
+}
+.city{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    font-size: x-large;
+   
+}
+.number{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    font-size: x-large;
+    
+}
+.rating{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    font-size: x-large;
+   
+}
+.url{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    font-size: x-large;
+    
+}
+
+
+.BreweryList{
+color: black;
+/* display:flex;
+flex-direction:column; */
+align-items: center;
+justify-content: center;
+height: 70%;
 }

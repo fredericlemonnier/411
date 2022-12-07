@@ -2,6 +2,9 @@ import {useState} from 'react';
 import axios from 'axios';
 import './SearchBar.css';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap'
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function SearchBar() {
     const [team, setTeam] = useState("");
@@ -104,8 +107,10 @@ function SearchBar() {
             </>
             :
             <>
-            <h1>Find Breweries!</h1>
-            <input
+            <h1 className='title'>Find Breweries!</h1>
+            <Card>
+            <input 
+            
             type="text"
             id="header-search"
             placeholder="Team"
@@ -114,6 +119,7 @@ function SearchBar() {
             onChange={(e) => setTeam(e.target.value)}       
         />
         <input
+           
             type="date"
             id="header-search"
             placeholder="Date"
@@ -121,7 +127,8 @@ function SearchBar() {
             value={exactDate}
             onChange={(e) => setExactDate(e.target.value)}
         />
-        <button onClick={onSubmit}>Search</button>
+        <Button onClick={onSubmit}>Search</Button>
+        </Card>
         </>
             
             }

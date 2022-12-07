@@ -5,6 +5,8 @@ import axios from 'axios';
 import SearchBar from '../SearchBar/SearchBar';
 import { useLocation, Link } from 'react-router-dom';
 import './BreweryList.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap'
 
 const BreweryList = () => {
   const location = useLocation();
@@ -12,20 +14,28 @@ const BreweryList = () => {
 
   return (
     <div className='background'>
-      <h1>Top 5 closest breweries near the match's stadium!</h1>
+      <>
+            <br/>
+            </> 
+      <div>Top 5 closest breweries near the match's stadium!</div>
+      <>
+            <br/>
+            </> 
        {data.map(
-                (brewery => <div className="Brewery List">
+                (brewery => <div className="BreweryList">
                   
-                    <p className='brewery'> 
+                    <Card className='brewery'> 
             <div className='name'>Brewery name: {brewery.name}</div>
-            <div>street address: {brewery.address}</div>
-            <div>city: {brewery.city}</div>
-            <div>phone number: {brewery.phone}</div>
-            <div>ratings: {brewery.rating}</div>
-            <a href={brewery.url}>Check brewery detail through clicking this link!</a>
+            <div className='address'>street address: {brewery.address}</div>
+            <div className='city'>city: {brewery.city}</div>
+            <div className='number'>phone number: {brewery.phone}</div>
+            <div className='rating'>rating: {brewery.rating}</div>
+            <a href={brewery.url} className='url'>Check brewery detail through clicking this link!</a>
             
-            </p>
-                    
+            </Card>
+            <>
+            <br/>
+            </>              
                     </div>))}
     </div>
   )

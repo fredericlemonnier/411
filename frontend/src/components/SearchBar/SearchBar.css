@@ -1,7 +1,7 @@
 .Game{
     position:absolute;
-    top: 50px;
-    left: 50px;
+    top: 180px;
+   justify-content: center;
 }
 /* .img_col {
     float: left;
@@ -20,16 +20,16 @@
     display: table;
 }
 
-table, th, td {
-    border: 1px solid;
-  }
 
 .stadium{
     font-style:italic;
 }
-/* .name{
-    font-weight: bold;
-}
-.brewery{
-    font-size: large;
+
+/* #h1{
+    top:50px;
 } */
+
+.search{
+    position:relative;
+    top:0;
+}
