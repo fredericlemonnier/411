@@ -1,17 +1,29 @@
 import { useState, useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-//   const { registerUser } = useContext(AuthContext);
+
   const history = useNavigate();
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // registerUser(username, password, password2);
+    const username = e.target.username.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const inputs = {name: username, email: email, password: password}
+    
+    await axios({
+      method: 'post',
+      url:'http://127.0.0.1:8000/signup/',
+      data: inputs,
+    }).then( response => {console.log(response)})
+
     history('/login');
   };
 
@@ -27,6 +39,16 @@ function RegisterPage() {
             id="username"
             onChange={e => setUsername(e.target.value)}
             placeholder="Username"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Email"
             required
           />
         </div>

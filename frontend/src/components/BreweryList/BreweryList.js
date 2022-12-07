@@ -11,6 +11,7 @@ import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap'
 const BreweryList = () => {
   const location = useLocation();
   const data = location.state;
+  //implement saveFavourite to use axios.post to send email and brewery name
 
   return (
     <div className='background'>
@@ -23,8 +24,7 @@ const BreweryList = () => {
             </> 
        {data.map(
                 (brewery => <div className="BreweryList">
-                  
-                    <Card className='brewery'> 
+            <Card className='brewery'> 
             <div className='name'>Brewery name: {brewery.name}</div>
             <div className='address'>street address: {brewery.address}</div>
             <div className='city'>city: {brewery.city}</div>

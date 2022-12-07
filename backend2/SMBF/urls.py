@@ -18,7 +18,8 @@ from django.urls import path, include
 from myapi import views
 
 urlpatterns = [
-    path('getBreweries/', views.getBreweries),
+   
     path("admin/", admin.site.urls),
-    path('myapi/', include('myapi.urls')),
+    # path('myapi/', include('myapi.urls')),
+    path('', include('myapi.urls')),
 ]

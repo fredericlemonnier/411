@@ -13,12 +13,13 @@ import requests
 from django.http import HttpResponse
 from django.shortcuts import *
 import json
+from bson import json_util
 
-class UserViewSet(viewsets.ModelViewSet):
-    # queryset = User.objects.all()
-    serializer_class = UserSerializer
-    def get_queryset(self):
-        return User.objects.all()
+# class UserViewSet(viewsets.ModelViewSet):
+#     # queryset = User.objects.all()
+#     serializer_class = UserSerializer
+#     def get_queryset(self):
+#         return User.objects.all()
 
 apiKey = 'jKsDaQ4sGAM4QNtXLDWyODCVJWKpHxZnVLasy9Dsm6Ly15IzINJqLTZVNFck'
 
@@ -116,4 +117,40 @@ def getBreweries(request):
 
     # return the dictionary containing all the data
     return HttpResponse(json.dumps(table))
+
+import pymongo
+connect_string = 'mongodb+srv://cs411:Password123@cs411.0suyfaw.mongodb.net/?retryWrites=true&w=majority'
+from django.conf import settings
+my_client = pymongo.MongoClient(connect_string)
+
+# First define the database name
+dbname = my_client['user']
+
+# Now get/create collection name (remember that you will see the database in your mongodb cluster only after you create a collection
+collection_name = dbname["userdetails"]
+
+
+@csrf_exempt
+def signup(request):
+    inputs = request.read().decode("utf-8")
+    inputs = inputs.split(',')
+    collection_name.insert_one({'name': inputs[0][9:-1], 'email':inputs[1][9:-1], 'password':inputs[2][12:-2]})
+    return HttpResponse(inputs)
+
+@csrf_exempt
+def login(request):
+    inputs = request.read().decode("utf-8")
+    inputs = inputs.split(',')
+    # name = inputs[0][9:-1]
+    # email = inputs[1][9:-1]
+    # password = inputs[2][12:-2]
+    # user = collection_name.find_one({"email": {email}})
+    
+    email = inputs[1][9:-1]
+    user = collection_name.find_one({"email": {email}})
+    user_list = list(user)
+    user_data = dumps(user_list)
+    return HttpResponse(user_data)
+
+
 

@@ -5,12 +5,13 @@ import { Navbar, Nav, NavDropdown, Form, Button, ButtonGroup } from 'react-boots
 // import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import './Navbar.css'
-import GoogleLogin from 'react-google-login';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 function Navbar1() {
+    
     const history = useNavigate();
 
     // const handleLogoutClick = () => {
@@ -34,10 +35,10 @@ function Navbar1() {
     //     console.log(googleResponse);
     //     console.log(response);
     //   }
-    let [name, setName] = useState("");
-    let [token, setToken] = useState("");
-    let [imageUrl, setImageUrl] = useState("");
-    let [email, setEmail] = useState("");
+    const [ profile, setProfile ] = useState([]);
+    const [name, setName] = useState("");
+    const [token, setToken] = useState("");
+    const [email, setEmail] = useState("");
     useEffect(() => {
         function start() {
         gapi.client.init({
@@ -48,20 +49,37 @@ function Navbar1() {
           gapi.load('client:auth2', start);
            }, []);
     const onSuccess = async (res) => {
-        console.log(res.profileObj.name);
+        console.log(res.profileObj);
+        setProfile(res.profileObj);
         setName(res.profileObj.name);
         setToken(res.profileObj.googleId);
-        setImageUrl(res.profileObj.imageUrl);
         setEmail(res.profileObj.email);
-        console.log({name});
-        // {axios.post('http://127.0.0.1:8000/auth', 
-        // {email: res.profileObj.email, name: res.profileObj.name, googleId: res.profileObj.token}
-        // )}
-        // add condition on only if the email is not "", then axios.post() to backend
+        localStorage.setItem("name", JSON.stringify(res.profileObj.name));
+        localStorage.setItem("email", JSON.stringify(res.profileObj.email));
+        localStorage.setItem("password", JSON.stringify(res.profileObj.password));
+        // await axios.post('http://127.0.0.1:8000/signup', 
+        // {name: res.profileObj.name, email: res.profileObj.email, password: res.profileObj.token}
+        // ).then( response => {console.log(response)})
+        
     }
     const onFailure = (res) => {
         console.log(res);
     }
+    const logout = () => {
+        // e.preventDefault();
+        console.log('Logout');
+
+        // CLEAR DATA FROM STORAGE
+        // localStorage.clear();
+        setProfile(null);
+        setName("");
+        setToken("");
+        setEmail("");
+        // history("/");
+        localStorage.clear();
+        history("/");
+    }
+
     const routeChange1 = () =>{ 
         let path = '/login'; 
         history(path);
@@ -77,23 +95,30 @@ function Navbar1() {
         
         <Navbar inline className="mx-3" >
             <ButtonGroup className="mx-5">
+        {("name" in localStorage) ?(
+            <GoogleLogout clientId="73964776413-8vqrr54t5nhe8ut6m9ah9eejpkocle8v.apps.googleusercontent.com"
+             buttonText="Log out" onLogoutSuccess={logout} />
+        ):(
             <GoogleLogin
           clientId="73964776413-8vqrr54t5nhe8ut6m9ah9eejpkocle8v.apps.googleusercontent.com"
           buttonText="LOGIN WITH GOOGLE"
           onSuccess={onSuccess}
           onFailure={onFailure}
-          isSignedIn={true}
+        //   isSignedIn={true}
         />
-                   
+        )}       
                     <Button className="mx-4" onClick={routeChange1}>Login</Button>
                     <Button className="mx-4" onClick={routeChange2}>Signup</Button>
                     
-                </ButtonGroup>
-
-                </Navbar>
-                { (email !== "") && <Navbar inline className="mx-3"> {name} </Navbar>}
+            </ButtonGroup>
+            
+        </Navbar>
+        <div className="username">
+                { ("name" in localStorage) && <Navbar className="mx-3"> {localStorage.getItem('name') } </Navbar>}
+            </div>
 
         </Navbar>
+        
     )
 }
 
@@ -101,5 +126,5 @@ function Navbar1() {
 //     return { currentUser: state.currentUser }
 //   }
 
-// export default connect(mapStateToProps, { logout } )(GlobalNavbar)
+
 export default Navbar1;

@@ -14,8 +14,8 @@ from pathlib import Path
 
 # --- Alyssa added 11/27 ----------- #
 
-import mongoengine
-mongoengine.connect(db='cs411', host='alyssacg@bu.edu', username='cs411', password='Password123')
+# import mongoengine
+# mongoengine.connect(db='cs411', host='alyssacg@bu.edu', username='cs411', password='Password123')
 
 # ---------------------------------- #
 
@@ -86,17 +86,26 @@ WSGI_APPLICATION = "SMBF.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 # ----- Added by Alyssa ------ #
 # mongodb+srv://cs411:Password123@cs411.0suyfaw.mongodb.net/?retryWrites=true&w=majority
 # ---- #
-
+DATABASES = {
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'cs411',
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': 'mongodb+srv://cs411:Password123@cs411.0suyfaw.mongodb.net/?retryWrites=true&w=majority'
+            }  
+        }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

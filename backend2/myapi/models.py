@@ -3,14 +3,13 @@ from django.db import models
 # import uuid
 # from typing import Optional
 
-from mongoengine import Document, fields
 
 # Create your models here.
-class User(Document):
-    id = fields.StringField()
-    username  = fields.StringField()
-    email = fields.StringField()
-    password =  fields.StringField()
+class User(models.Model):
+    
+    name  = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    password =  models.CharField(max_length=100)
 
     # not sure what to do w the stuff directly below
     # name = models.CharField(max_length=60)
