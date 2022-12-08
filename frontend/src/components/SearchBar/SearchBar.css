@@ -2,6 +2,7 @@
     position:absolute;
     top: 120px;
    justify-content: center;
+   align-items: center;
 }
 /* .img_col {
     float: left;
@@ -9,9 +10,22 @@
     padding: 5px;
 } */
 .img_col{
-    display:inline-block
+    display:inline-block;
+    position: flex;
+    padding:12px;
+    justify-content: center;
+    align-items: center;
+   
 }
 
+div.img_row{
+    justify-content: center;
+    position: flex;
+    align-items: center;
+    display: inline-block;
+    /* margin-left: 0px;
+    margin-right: 100px; */
+}
   
   /* Clear floats after image containers */
 .img_row::after {
@@ -19,11 +33,16 @@
     clear: both;
     display: table;
 }
-
-
-.stadium{
-    font-style:italic;
+.match{
+    justify-content: center;
+    position: flex;
+    align-items: center;
 }
+
+
+/* .stadium{
+    font-style:italic;
+} */
 
 /* #h1{
     top:50px;
@@ -33,3 +52,4 @@
     position:relative;
     top:0;
 }
+

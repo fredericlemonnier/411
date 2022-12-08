@@ -9,6 +9,7 @@ import BreweryList from './components/BreweryList/BreweryList.js';
 import Navbar1 from './components/Navbar1/Navbar1.js';
 import LoginPage from './components/Views/LoginPage';
 import RegisterPage from './components/Views/RegisterPage';
+import Profile from './components/Profile/Profile';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/details" element={<BreweryList/>} />
           <Route exact path="/login" element={<LoginPage/>} />
           <Route exact path="/register" element={<RegisterPage/>} />
+          <Route exact path="/profile" element={<Profile/>} />
             
         </Routes>
         </header>

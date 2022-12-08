@@ -6,7 +6,7 @@
 
 .mb-2{
     background-color: blueviolet;
-    color:blanchedalmond;
+    color:rgba(187, 223, 26, 0.664);
     font-size: x-large;
 }
 .mx-3{
@@ -34,7 +34,7 @@ Navbar.mx-3{
     color: blueviolet;
 }
 .mb-2{
-    height: 35px;
+    height: 54px;
 }
 /* .image{
     display: inline-block;

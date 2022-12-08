@@ -35,7 +35,6 @@ function Navbar1() {
     //     console.log(googleResponse);
     //     console.log(response);
     //   }
-    const [ profile, setProfile ] = useState([]);
     const [name, setName] = useState("");
     const [token, setToken] = useState("");
     const [email, setEmail] = useState("");
@@ -50,7 +49,6 @@ function Navbar1() {
            }, []);
     const onSuccess = async (res) => {
         console.log(res.profileObj);
-        setProfile(res.profileObj);
         setName(res.profileObj.name);
         setToken(res.profileObj.googleId);
         setEmail(res.profileObj.email);
@@ -71,7 +69,6 @@ function Navbar1() {
 
         // CLEAR DATA FROM STORAGE
         // localStorage.clear();
-        setProfile(null);
         setName("");
         setToken("");
         setEmail("");
@@ -88,12 +85,23 @@ function Navbar1() {
         let path = '/register'; 
         history(path);
       }
+    const profile = () => {
+        let path = '/profile';
+        history(path);
+    }
+    const homepage = () => {
+        history('/');
+    }
 
     return (
         <Navbar collapseOnSelect expand="sm" bg="light" variant="light" className="mb-2">
-            <Button to="/user" className="mx-3">Breweries you save</Button>
+            <Button className="mx-3" onClick={profile}>Your profile</Button>
         
         <Navbar inline className="mx-3" >
+        
+            <Button className="mx-3" onClick={homepage}>Homepage</Button>
+        
+        
             <ButtonGroup className="mx-5">
         {("name" in localStorage) ?(
             <GoogleLogout clientId="73964776413-8vqrr54t5nhe8ut6m9ah9eejpkocle8v.apps.googleusercontent.com"
@@ -107,14 +115,14 @@ function Navbar1() {
         //   isSignedIn={true}
         />
         )}       
-                    <Button className="mx-4" onClick={routeChange1}>Login</Button>
-                    <Button className="mx-4" onClick={routeChange2}>Signup</Button>
+                 { !("name" in localStorage) &&  <Button className="mx-4" onClick={routeChange1}>Login</Button>}
+                 {  !("name" in localStorage) && <Button className="mx-4" onClick={routeChange2}>Signup</Button>}
                     
             </ButtonGroup>
             
         </Navbar>
         <div className="username">
-                { ("name" in localStorage) && <Navbar className="mx-3"> {localStorage.getItem('name') } </Navbar>}
+                { ("name" in localStorage) && <Navbar className="mx-3"> Welcome: {(localStorage.getItem('name').slice(1, -1))} !  </Navbar>}
             </div>
 
         </Navbar>

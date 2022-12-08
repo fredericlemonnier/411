@@ -25,7 +25,6 @@ function SearchBar() {
 
     const onSubmit = async () => {
         setSearchClicked(!searchClicked);
-
         const inputs = {
             team : team,
             date : exactDate
@@ -62,7 +61,7 @@ function SearchBar() {
         {searchClicked ?
             //  {breweries.map()}
             <>
-            <div className='Game'>
+            <td align="center" className='Game'>
                 <div className='img_row'>
                     <div className='img_col'>
                         <img src={team1Logo}/>
@@ -77,20 +76,18 @@ function SearchBar() {
                         {/* Add team name */}
                         <div className='hteam'>{ateam}</div>
                     </div>
-                </div>
-                
-                
-            </div>
-            <div>
+                </div>           
+            </td>
+            <td align="center" className='match'>
                 <div>Match date: {date}</div>
                 {/* Venue info */}
                 <div className='stadium'>Stadium name: {venueName}</div>
                 <div className='stadium'>Stadium address: {venueAddress}</div>
                 <div className='stadium'>Stadium located city: {venueCity}</div>
-                {/* Game Time */}
                 
-            </div>
-            <Link to="/details" state= {breweries} className='breweries'>breweries near the stadium </Link>
+                <Link to="/details" state= {breweries} className='breweries'>breweries near the stadium </Link>
+            </td>
+            
             {/* {breweries.map(
                 (brewery => <div className="Brewery List">
                   

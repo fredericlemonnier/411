@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -6,6 +6,7 @@ import axios from "axios";
 const LoginPage = () => {
 //   const { loginUser } = useContext(AuthContext);
   const history = useNavigate();
+  const [data, setData] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const username = e.target.username.value;
@@ -13,18 +14,20 @@ const LoginPage = () => {
     const password = e.target.password.value;
     
     const inputs = {name: username, email: email, password: password}
-    // console.log(inputs)
-    localStorage.setItem("name", JSON.stringify(username));
+    // localStorage.setItem("name", JSON.stringify(username));
+    // localStorage.setItem("email", JSON.stringify(email));
+    // localStorage.setItem("password", JSON.stringify(password));
+    await axios.post('http://127.0.0.1:8000/login/', inputs).then(
+      response => {setData(response.data[0]['password'])})  
+    if(data === undefined){
+      console.log("log in failed")
+    } else{
+      localStorage.setItem("name", JSON.stringify(username));
     localStorage.setItem("email", JSON.stringify(email));
     localStorage.setItem("password", JSON.stringify(password));
-    // // await axios({
-    //   method: 'post',
-    //   url:'http://127.0.0.1:8000/login/',
-    //   data: inputs,
-    // }).then(
-    //   response => {console.log(response)})
-     
-    history('/');
+    history('/'); 
+    }
+    
   };
 
   return (

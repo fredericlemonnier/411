@@ -143,14 +143,12 @@ def login(request):
     inputs = inputs.split(',')
     # name = inputs[0][9:-1]
     # email = inputs[1][9:-1]
-    # password = inputs[2][12:-2]
-    # user = collection_name.find_one({"email": {email}})
-    
-    email = inputs[1][9:-1]
-    user = collection_name.find_one({"email": {email}})
-    user_list = list(user)
-    user_data = dumps(user_list)
-    return HttpResponse(user_data)
+    name = inputs[0][9:-1]
+    # user = collection_name.find({'name': {name}})
+    # user_data = json_util.dumps(list(user))
+    #check that the username exists in out mongodb database
+    user = collection_name.find({"name": str(name)})
+    return HttpResponse(json_util.dumps(list(user)))
 
 
 
