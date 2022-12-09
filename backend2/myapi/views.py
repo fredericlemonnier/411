@@ -61,6 +61,7 @@ def getBreweries(request):
     r_coord = requests.get(url=coordinates_url).json()
     latitude = r_coord['data']['latitude']
     longitude = r_coord['data']['longitude']
+    city = r_coord['data']['city_name']
 
     # call function to get the list of breweries
     # breweries_url = f'https://api.openbrewerydb.org/breweries?by_dist={latitude},{longitude}&per_page=5'

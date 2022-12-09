@@ -11,7 +11,13 @@ import { Container, Row, Col, Button, Card, Form } from 'react-bootstrap'
 const BreweryList = () => {
   const location = useLocation();
   const data = location.state;
+  const brewery = location.state;
   //implement saveFavourite to use axios.post to send email and brewery name
+  const handleClick = value => {
+    // var existBreweries = localStorage.getItem("breweries")
+    // existBreweries.push(value)
+    localStorage.setItem("breweries", JSON.stringify(value))
+  }
 
   return (
     <div className='background'>
@@ -30,13 +36,14 @@ const BreweryList = () => {
             <div className='city'>city: {brewery.city}</div>
             <div className='number'>phone number: {brewery.phone}</div>
             <div className='rating'>rating: {brewery.rating}</div>
-            <a href={brewery.url} className='url'>Check brewery detail through clicking this link!</a>
-            
+            <a href={brewery.url} className='url'>Check brewery detail through clicking this link!</a> 
             </Card>
+            
             <>
             <br/>
             </>              
-                    </div>))}
+                    </div>))}               
+          
     </div>
   )
 }

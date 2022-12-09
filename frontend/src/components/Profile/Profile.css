@@ -1,0 +1,26 @@
+.info{
+    align-items: center;
+justify-content: center;
+display: relative;
+}
+.team{
+    align-items: center;
+justify-content: center;
+display: relative;
+}
+.mx1{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    font-weight: bold;
+}
+.mx2{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}
+.mx3{
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}

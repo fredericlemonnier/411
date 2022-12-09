@@ -29,6 +29,7 @@ function SearchBar() {
             team : team,
             date : exactDate
         };  
+        localStorage.setItem('team', team);
         
         await axios.post('http://127.0.0.1:8000/getBreweries/',inputs).then((response => {
             const brews = response.data['breweries']

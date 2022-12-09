@@ -52,9 +52,10 @@ function Navbar1() {
         setName(res.profileObj.name);
         setToken(res.profileObj.googleId);
         setEmail(res.profileObj.email);
-        localStorage.setItem("name", JSON.stringify(res.profileObj.name));
-        localStorage.setItem("email", JSON.stringify(res.profileObj.email));
+        localStorage.setItem("name", JSON.stringify(res.profileObj.name).slice(1, -1));
+        localStorage.setItem("email", JSON.stringify(res.profileObj.email).slice(1, -1));
         localStorage.setItem("password", JSON.stringify(res.profileObj.password));
+        localStorage.setItem("breweries", ["brewery"])
         // await axios.post('http://127.0.0.1:8000/signup', 
         // {name: res.profileObj.name, email: res.profileObj.email, password: res.profileObj.token}
         // ).then( response => {console.log(response)})
@@ -122,7 +123,7 @@ function Navbar1() {
             
         </Navbar>
         <div className="username">
-                { ("name" in localStorage) && <Navbar className="mx-3"> Welcome: {(localStorage.getItem('name').slice(1, -1))} !  </Navbar>}
+                { ("name" in localStorage) && <Navbar className="mx-3"> Welcome: {(localStorage.getItem('name'))}   </Navbar>}
             </div>
 
         </Navbar>
