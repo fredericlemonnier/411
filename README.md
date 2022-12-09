@@ -1,44 +1,31 @@
-# CS411 Section A5 Group 8
+# CS411 Section A5 Group 8 Team members: Alyssa, Jordan, Frederic, Dongyue Xu, Yash
 CS411 Group Project proposal
-1. Soccer Match Brewery Finder
+Project topic: Soccer Match Brewery Finder
 
-The idea is that the user inputs a soccer game they are attending and in return gets breweries close to the stadium. 
-We will use the https://docs.sportmonks.com/football2/getting-started/welcome api" for the soccer games 
-and the "https://www.openbrewerydb.org/documentation" api to find the breweries.
+The idea is that the user inputs a soccer game they are intending to attend and in return gets breweries closest to the match's stadium. 
+We will use the sportsmonk football api for the soccer games match and venue coordinates
+and the Yelp business search api to find the closest breweries near the stadium.
 
-2. Food recipe and nutrition analysis app proposal:
+Sportsmonk football api: 
+https://docs.sportmonks.com/football2/getting-started/welcome api
+Yelp business search api:
+https://docs.developer.yelp.com/reference/v3_business_search
 
-  Our app is a meal management app, which offers two functionalities: 1)providing food recipes according to the user's needs and 2)tracking the nutrition and calories consumption of the user. 
-  
-  Our app first starts with searching for the recipes for the users according to their needs. 
-  
-  We’ll use the “Spoonacular Nutrition, Recipe, and food API” to display the corresponding food recipes for our app users according to the search filters they use.
-In this recipe search API, there are many filters to choose from, such as ingredients and equipment you currently have, the desired cuisine type, your standard for the minCalories and maxCalories and so on.
+Technology stacks we use:
 
-  Our app will be a tailored food and recipe management app for our users. 
-  
-  In the user’s recipe search, we’ll not only provide the recipe itself but also detailed instructions of how to cook that meal step by step. 
-  
-  A second part of our app is nutrition analysis and meal suggestion.
-  
-  Whenever the user selects a recipe as his or her meal, our app will keep track of the calories and nutritions contained in that recipe and generate charts to display the calories and nutritions contained within that meal. 
-  
-  Our app will also build a weekly dashboard as a report to show the distribution of calories and nutrients consumed by the user each day, and our app will also provide tailored meal prep suggestions according to the user’s recipe search records. 
-  
-  For example, if the records show that the user only eats high calorie food such as pizza and pizza and lack nutrients like Vitamin C, we’ll provide suggestions for the user to eat more vegetable salads.  
-  
-  Another API we could possibly use is called Edamam API. We’ll use this API to do nutrition analysis for our users.  
-  
-  Recipe ingredients extractor API is another API we will use. This API extracts recipe data (ingredients, units, instructions, images, times…) from a recipe URL, which could serve for searching the detailed step-by-step instructions of a specific recipe. 
+front end: ReactJS
 
-spoonacular API:
+backend: Django Python
 
-https://rapidapi.com/spoonacular/api/recipe-food-nutrition/
+database: MongoDB
 
-Edamam API:
+connection method of connecting Django to MongoDB: PyMongo and Djongo
 
-https://rapidapi.com/edamam/api/recipe-search-and-diet/ 
+How the app works:
 
-Recipe ingredients extractor API:
+At first, in the home page the user need to log in through google Oauth or manually log in, if he doesn't have an account, he will click sign up button, 
+and after he completes sign up, his user information will be stored in the MongoDB database. After he is verified from our Mongodb data base and successfully log in, the profile page will be enabled for him to check his user info and his favourite football team. He can also log out after he's logged in.
 
-https://rapidapi.com/c85270r/api/recipe-ingredients-extractor/ 
+In the home page, there's the search functionality, in which user enters the football team that he's going to watch and the match date, our app will 
+then first display the match's details, and then provide a find-breweries hyperlink for user to click to direct to another page, in which 
+the page displays the top 5 closest breweries, including all the detailed information of each brewery, such as brewery name, address, city name, phone number, Yelp url and rating on Yelp. 
