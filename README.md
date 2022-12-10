@@ -1,4 +1,4 @@
-# CS411 Section A5 Group 8 Team members: Alyssa, Jordan, Frederic, Dongyue Xu, Yash
+# CS411 Section A5 Team 8  Team members: Alyssa, Jordan, Frederic, Dongyue Xu, Yash
 CS411 Group Project proposal
 Project topic: Soccer Match Brewery Finder
 
