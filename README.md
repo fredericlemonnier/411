@@ -7,7 +7,8 @@ We will use the sportsmonk football api for the soccer games match and venue coo
 and the Yelp business search api to find the closest breweries near the stadium.
 
 Sportsmonk football api: 
-https://docs.sportmonks.com/football2/getting-started/welcome api
+https://docs.sportmonks.com/football2/getting-started/welcome 
+
 Yelp business search api:
 https://docs.developer.yelp.com/reference/v3_business_search
 
@@ -27,5 +28,5 @@ At first, in the home page the user need to log in through google Oauth or manua
 and after he completes sign up, his user information will be stored in the MongoDB database. After he is verified from our Mongodb data base and successfully log in, the profile page will be enabled for him to check his user info and his favourite football team. He can also log out after he's logged in.
 
 In the home page, there's the search functionality, in which user enters the football team that he's going to watch and the match date, our app will 
-then first display the match's details, and then provide a find-breweries hyperlink for user to click to direct to another page, in which 
+first display the match's details, and then provide a find-breweries hyperlink for user to click to direct to another page, in which 
 the page displays the top 5 closest breweries, including all the detailed information of each brewery, such as brewery name, address, city name, phone number, Yelp url and rating on Yelp. 
