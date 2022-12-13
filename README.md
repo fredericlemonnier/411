@@ -12,7 +12,7 @@ https://docs.sportmonks.com/football2/getting-started/welcome
 Yelp business search api:
 https://docs.developer.yelp.com/reference/v3_business_search
 
-The external API calls are all moved to backend view.py file.
+The external API calls are all in backend views.py file.
 
 Technology stacks we use:
 
