@@ -9,8 +9,6 @@ import InputGroup from 'react-bootstrap/InputGroup';
 function SearchBar() {
     const [team, setTeam] = useState("");
     const [exactDate, setExactDate] = useState("");
-    // const teamRef = useRef("");
-    // const dateRef = useRef("");
     const [searchClicked, setSearchClicked] = useState(false);
     const [breweries, setData] = useState([]);
     const [team1Logo, setLogo1] = useState("");
@@ -60,7 +58,6 @@ function SearchBar() {
     return (
         <div>
         {searchClicked ?
-            //  {breweries.map()}
             <>
             <td align="center" className='Game'>
                 <div className='img_row'>
@@ -89,19 +86,7 @@ function SearchBar() {
                 <Link to="/details" state= {breweries} className='breweries'>breweries near the stadium </Link>
             </td>
             
-            {/* {breweries.map(
-                (brewery => <div className="Brewery List">
-                  
-                    <p className='brewery'> 
-            <div className='name'>Brewery name: {brewery.name}</div>
-            <div>street address: {brewery.street}</div>
-           
-            <div>phone number: {brewery.phone}</div>
-            <a href={brewery.website_url}>Check brewery detail through clicking this link!</a>
-            
-            </p>
-                    
-                    </div>))} */}
+          
             </>
             :
             <>

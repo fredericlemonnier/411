@@ -15,13 +15,8 @@ from django.shortcuts import *
 import json
 from bson import json_util
 
-# class UserViewSet(viewsets.ModelViewSet):
-#     # queryset = User.objects.all()
-#     serializer_class = UserSerializer
-#     def get_queryset(self):
-#         return User.objects.all()
 
-apiKey = 'jKsDaQ4sGAM4QNtXLDWyODCVJWKpHxZnVLasy9Dsm6Ly15IzINJqLTZVNFck'
+apiKey = 'your sportsmonk football api key'
 
 @csrf_exempt
 def getBreweries(request):

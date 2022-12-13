@@ -4,19 +4,16 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginPage = () => {
-//   const { loginUser } = useContext(AuthContext);
+
   const history = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const username = e.target.username.value;
-    // const email = e.target.email.value;
     const password = e.target.password.value;
     
     const inputs = {name: username, password: password}
-    // localStorage.setItem("name", JSON.stringify(username));
-    // localStorage.setItem("email", JSON.stringify(email));
-    // localStorage.setItem("password", JSON.stringify(password));
+    //call backend database to verify user information
     await axios.post('http://127.0.0.1:8000/login/', inputs).then(
       (response => {
       if(response.data[0].password === undefined){
